@@ -2,3 +2,32 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+/* Файл variables.css - переменные для тёмной темы (основной) */
+
+:root {
+  /* Цвета */
+  --bg-color: #000028;
+  --text-color: #F1B2CE;
+  --accent-color: #FF0070;
+  --title-color: #DB00FF;
+  --title-shadow: #FF0070;
+  --title-decor-bg: #FF0070;
+  --title-decor-color: #000028;
+  --section-title-color: #FF0070;
+  --button-color: #FF0070;
+  --button-hover-border: rgba(255, 0, 112, 0.4);
+  
+  /* Шрифты */
+  --main-font: 'IBM Plex Mono', monospace;
+  --font-size: 18px;
+  
+  /* Отступы */
+  --gap: 20px;
+  
+  /* Размеры */
+  --header-height: 100vh;
+  --footer-height: 100vh;
+  
+  /* Фоны */
+  --bg-image: url(../images/cover-image-dark.png);
+}

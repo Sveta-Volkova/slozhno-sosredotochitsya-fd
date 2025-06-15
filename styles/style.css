@@ -2,4 +2,270 @@
 
 .page {
   /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  color: var(--text-color);
+  font-family: var(--main-font);
+  font-size: var(--font-size);
+  line-height: 1.3;
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Декоративные уголки */
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.decorated-zone::before {
+  top: 10px;
+  right: 10px;
+  border-top: 1px solid var(--accent-color);
+  border-right: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+  bottom: 10px;
+  left: 10px;
+  border-bottom: 1px solid var(--accent-color);
+  border-left: 1px solid var(--accent-color);
+}
+
+/* Шапка */
+.header {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  align-items: center;
+  padding: 10px;
+  min-height: var(--header-height);
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  border: none;
+  background: transparent;
+  color: var(--button-color);
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0 13px;
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid var(--button-hover-border);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  border-bottom: 1px solid var(--button-color);
+}
+
+.header__theme-menu-button_active {
+  border: 1px solid var(--button-color);
+  pointer-events: none;
+}
+
+/* Заголовок */
+.title {
+  color: var(--title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 0.825;
+  text-shadow: 4px 4px 0 var(--title-shadow);
+}
+
+/* Текст на цветном фоне */
+.title-decor {
+  background-color: var(--title-decor-bg);
+  color: var(--title-decor-color);
+}
+
+/* REC элемент */
+.rec-decoration {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.rec-decoration::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
+/* Основное содержимое */
+.content-section {
+  padding: 0 10px;
+  margin: 40px 0;
+}
+
+/* Галерея (Mobile First) */
+.gallery {
+  display: grid;
+  gap: var(--gap);
+}
+
+.gallery__title {
+  font-size: inherit;
+}
+
+.gallery__images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--page-padding);
+}
+
+.gallery__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Ссылки */
+.link {
+  text-shadow: 2px 2px 0 var(--accent-color);
+  text-decoration: none;
+}
+
+.link:hover {
+  border-bottom: 1px solid currentColor;
+}
+
+.link:focus {
+  outline: none;
+}
+
+.link:focus-visible {
+  outline: 1px solid currentColor;
+}
+
+/* Подвал */
+.footer {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: var(--footer-height);
+  padding: 10px;
+}
+
+.footer__title {
+  text-shadow: 2px 2px 0 var(--accent-color);
+}
+
+/* Адаптив для планшетов */
+@media (width >= 768px) {
+  .header,
+  .footer {
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+  
+  .content-section {
+    padding: 0 20px;
+    margin: 60px 0;
+  }
+
+  /* Картинки */
+  .gallery__images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: var(--page-padding);
+  }
+  
+  .gallery__image:first-child {
+    grid-column: span 2;
+    height: 192px;
+  }
+  
+  .gallery__image:nth-child(2) {
+    grid-column: 3;
+    grid-row: span 2;
+    height: 441px;
+  }
+  
+  .gallery__image:nth-child(3) {
+    grid-column: 1;
+    grid-row: span 2;
+    height: 568px;
+  }
+  
+  .gallery__image:nth-child(4) {
+    height: 230px;
+  }
+  
+  .gallery__image:nth-child(5) {
+    grid-column: span 2;
+    height: 318px;
+  }
+}
+
+/* Адаптив для десктопов */
+@media (width >= 1024px) {
+  .header__theme-menu {
+    justify-self: center;
+    align-self: start;
+  }
+  
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+
+  /* Картинки */
+  .gallery__images {
+    max-width: 984px;
+    max-height: 984px;
+    margin: 0 auto;
+  }
+  
+  .gallery__image:first-child {
+    height: 260px;
+  }
+  
+  .gallery__image:nth-child(2) {
+    height: 595px;
+  }
+  
+  .gallery__image:nth-child(3) {
+    height: 768px;
+  }
+  
+  .gallery__image:nth-child(4) {
+    height: 315px;
+  }
+  
+  .gallery__image:nth-child(5) {
+    height: 595px;
+  }
 }
