@@ -18,8 +18,9 @@
   --button-hover-border: rgba(255, 0, 112, 0.4);
   
   /* Шрифты */
-  --main-font: 'IBM Plex Mono', monospace;
+  --main-font: 'IBM Plex Mono', 'Roboto Mono', monospace, sans-serif;
   --font-size: 18px;
+  --title-font-weight: 700;
   
   /* Отступы */
   --gap: 20px;

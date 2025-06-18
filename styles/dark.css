@@ -15,8 +15,8 @@
   --title-color: #DB00FF;
   --title-shadow: #FF0070;
   --hover-color:  rgba(255, 0, 112, 0.4);
-  --background-color: #000028;
-  --background-image: url("../images/cover-image-dark.png");
+  --bg-color: #000028;
+  --bg-image: url("../images/cover-image-dark.png");
   --article-title-color: #000028;
   --section-title-color: #FF0070;
   --border-color: #FF0070;
@@ -28,6 +28,6 @@
   display: block;
 }
 
-.theme-dark .page {
+/* .theme-dark .page { */
   /* Вам также нужно будет написать ряд подобных селекторов */
-}
+/* } */

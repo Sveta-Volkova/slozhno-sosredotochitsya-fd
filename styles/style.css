@@ -89,7 +89,8 @@
 .title {
   color: var(--title-color);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  font-weight: 700;
+  font-weight: var(--title-font-weight);
+  font-family: var(--main-font);
   line-height: 0.825;
   text-shadow: 4px 4px 0 var(--title-shadow);
 }
@@ -98,6 +99,9 @@
 .title-decor {
   background-color: var(--title-decor-bg);
   color: var(--title-decor-color);
+  font-weight: var(--title-font-weight);
+  font-size: var(--font-size);
+  line-height: 23.4px;
 }
 
 /* REC элемент */
@@ -106,6 +110,7 @@
   top: 10px;
   right: 38px;
   color: var(--accent-color);
+  font-size: var(--font-size);
   text-transform: uppercase;
 }
 
@@ -127,7 +132,12 @@
   margin: 40px 0;
 }
 
-/* Галерея (Mobile First) */
+.first__section {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* Галерея */
 .gallery {
   display: grid;
   gap: var(--gap);
@@ -196,12 +206,19 @@
     margin: 60px 0;
   }
 
+  /* Надо сделать красиво */
+  .first__section {
+    display: grid;
+    grid-template-columns: 236px 1fr;
+    gap: 20px;
+  }
+
   /* Картинки */
   .gallery__images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
-    gap: var(--page-padding);
+    gap: var(--gap);
   }
   
   .gallery__image:first-child {
@@ -242,11 +259,16 @@
     flex-direction: row;
   }
 
+  .title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
   /* Картинки */
   .gallery__images {
     max-width: 984px;
     max-height: 984px;
     margin: 0 auto;
+    gap: var(--gap);
   }
   
   .gallery__image:first-child {
@@ -266,6 +288,6 @@
   }
   
   .gallery__image:nth-child(5) {
-    height: 595px;
+    height: 433px;
   }
 }
