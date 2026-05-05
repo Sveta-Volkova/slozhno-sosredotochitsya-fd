@@ -1,17 +1,17 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
   color: var(--text-color);
   font-family: var(--main-font);
   font-size: var(--font-size);
   line-height: 1.3;
   background-color: var(--bg-color);
-  background-image: var(--bg-image);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
+}
+
+.main {
+  padding: 0 10px;
+}
+
+.main > *:not(:last-child) {
+  margin-block-end: 50px;
 }
 
 /* Декоративные уголки */
@@ -37,6 +37,28 @@
   border-left: 1px solid var(--accent-color);
 }
 
+/* REC элемент */
+.rec-decoration {
+  position: absolute;
+  top: 10px;
+  right: 38px;
+  color: var(--accent-color);
+  font-size: var(--font-size);
+  text-transform: uppercase;
+}
+
+.rec-decoration::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: -18px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
+}
+
 /* Шапка */
 .header {
   position: relative;
@@ -45,9 +67,16 @@
   align-items: center;
   padding: 10px;
   min-height: var(--header-height);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 40px;
 }
 
 .header__theme-menu {
+  grid-row: 1;
   justify-self: end;
 }
 
@@ -85,6 +114,17 @@
   pointer-events: none;
 }
 
+.header__description {
+  grid-row: 3;
+}
+
+.header__title {
+  grid-row: 2;
+  font-weight: 700;
+  font-style: Bold;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+}
+
 /* Заголовок */
 .title {
   color: var(--title-color);
@@ -93,54 +133,60 @@
   font-family: var(--main-font);
   line-height: 0.825;
   text-shadow: 4px 4px 0 var(--title-shadow);
+  overflow-wrap: break-word;
 }
 
 /* Текст на цветном фоне */
 .title-decor {
   background-color: var(--title-decor-bg);
   color: var(--title-decor-color);
+  font-weight: var(--p-title-font-weight);
+  font-size: var(--font-size);
+}
+
+.accent-title-decor {
+  background-color: var(--title-decor-bg);
+  color: var(--title-decor-color);
   font-weight: var(--title-font-weight);
   font-size: var(--font-size);
-  line-height: 23.4px;
 }
 
-/* REC элемент */
-.rec-decoration {
-  position: absolute;
-  top: 10px;
-  right: 38px;
-  color: var(--accent-color);
+/*  ОСНОВНОЕ */
+.content-section__title {
+  color: var(--section-title-color);
   font-size: var(--font-size);
-  text-transform: uppercase;
 }
 
-.rec-decoration::after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  right: -18px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background-color: var(--accent-color);
-  box-shadow: 0 0 4px 2px var(--accent-color);
-}
-
-/* Основное содержимое */
-.content-section {
-  padding: 0 10px;
-  margin: 40px 0;
+.content-section__text {
+  margin-top: 10px;
 }
 
 .first__section {
   display: grid;
   grid-template-columns: 1fr;
+  gap: var(--gap);
+}
+
+.second__section {
+  display: grid;
+  gap: var(--gap);
+}
+
+.advice__section {
+  display: grid;
+  gap: var(--gap);
+}
+
+.advice__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
 }
 
 /* Галерея */
 .gallery {
   display: grid;
-  gap: var(--gap);
+  gap: 10px;
 }
 
 .gallery__title {
@@ -150,7 +196,7 @@
 .gallery__images {
   display: flex;
   flex-direction: column;
-  gap: var(--page-padding);
+  gap: 10px;
 }
 
 .gallery__image {
@@ -184,6 +230,7 @@
   place-items: center;
   min-height: var(--footer-height);
   padding: 10px;
+  margin-top: 40px;
 }
 
 .footer__title {
@@ -194,26 +241,94 @@
 @media (width >= 768px) {
   .header,
   .footer {
+    min-height: 100vh;
+  }
+
+  .page {
+    padding: inherit;
+  }
+
+  .main {
     padding: 20px;
   }
   
+  .main > *:not(:last-child) {
+  margin-block-end: 80px;
+  }
+
+  .header,
+  .footer {
+    padding: 20px;
+  }
+
+  .header__title {
+    margin-inline-start: -20px;
+  }
+
   .title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
-  
-  .content-section {
-    padding: 0 20px;
-    margin: 60px 0;
+
+  .header__description {
+    width: 364px;
+    margin-inline-start: auto;
   }
 
-  /* Надо сделать красиво */
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .rec-decoration {
+    top: 20px;
+    right: 48px;
+  }
+
   .first__section {
     display: grid;
     grid-template-columns: 236px 1fr;
-    gap: 20px;
+    gap: var(--gap);
+  }
+
+  .first-title {
+    grid-column: 1;
+  }
+
+  .content-why {
+    grid-column: 2;
+  }
+
+  .second__title {
+    width: 236px;
+  }
+
+  .advice__section {
+    grid-template-columns: 236px 1fr;
+  }
+
+  .advice__title {
+    grid-column: 1;
+  }
+
+  .accent-title-decor {
+    grid-column: 1;
+  }
+
+  .advice__wrapper {
+    grid-column: 2;
+    grid-row: 1 / 7;
   }
 
   /* Картинки */
+  .gallery {
+    gap: var(--gap);
+  }
+
   .gallery__images {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -250,6 +365,19 @@
 
 /* Адаптив для десктопов */
 @media (width >= 1024px) {
+  .header,
+  .footer {
+    min-height: 768px;
+  }
+
+  .main > *:not(:last-child) {
+    margin-block-end: 80px;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
   .header__theme-menu {
     justify-self: center;
     align-self: start;
@@ -261,6 +389,42 @@
 
   .title {
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__description {
+    width: 491px;
+  }
+
+  .first__section {
+    grid-template-columns: 315px 1fr;
+  }
+
+  .second__section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 1fr;
+    gap: var(--gap);
+  }
+
+  .second__title {
+    width: auto;
+    grid-column: 1;
+  }
+
+  .content-who {
+    grid-row: 2;
+  }
+
+  .advice__section {
+    grid-template-columns: 315px 1fr;
+  }
+
+  .advice__title {
+    grid-column: 1;
+  }
+
+  .accent-title-decor {
+    grid-column: 1;
   }
 
   /* Картинки */
@@ -289,5 +453,9 @@
   
   .gallery__image:nth-child(5) {
     height: 433px;
+  }
+
+  .footer {
+    margin-top: 100px;
   }
 }

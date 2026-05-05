@@ -1,9 +1,3 @@
-/*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
-*/
-/* Файл variables.css - переменные для тёмной темы (основной) */
-
 :root {
   /* Цвета */
   --bg-color: #000028;
@@ -21,13 +15,15 @@
   --main-font: 'IBM Plex Mono', 'Roboto Mono', monospace, sans-serif;
   --font-size: 18px;
   --title-font-weight: 700;
+  --p-title-font-weight: 400;
   
   /* Отступы */
   --gap: 20px;
+  --page-padding: 10px;
   
   /* Размеры */
-  --header-height: 100vh;
-  --footer-height: 100vh;
+  --header-height: 668px;
+  --footer-height: 668px;
   
   /* Фоны */
   --bg-image: url(../images/cover-image-dark.png);
