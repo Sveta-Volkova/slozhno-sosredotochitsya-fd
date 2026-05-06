@@ -10,21 +10,15 @@
   --section-title-color: #FF0070;
   --button-color: #FF0070;
   --button-hover-border: rgba(255, 0, 112, 0.4);
-  
   /* Шрифты */
-  --main-font: 'IBM Plex Mono', 'Roboto Mono', monospace, sans-serif;
+  --main-font: 'IBM Plex Mono', 'Roboto Mono', monospace;
   --font-size: 18px;
   --title-font-weight: 700;
-  --p-title-font-weight: 400;
-  
+  --text-font-weight: 400;
   /* Отступы */
   --gap: 20px;
   --page-padding: 10px;
-  
-  /* Размеры */
-  --header-height: 668px;
-  --footer-height: 668px;
-  
-  /* Фоны */
+  --header-footer-height: max(668px, 100vh);
+  /* Фон */
   --bg-image: url(../images/cover-image-dark.png);
 }
