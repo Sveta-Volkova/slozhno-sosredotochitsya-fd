@@ -11,3 +11,7 @@
   --bg-color: #000028;
   --bg-image: url("../images/cover-image-dark.png");
 }
+
+.theme-dark .rec-decoration {
+  display: block;
+}

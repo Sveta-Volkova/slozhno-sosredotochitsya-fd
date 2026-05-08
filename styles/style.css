@@ -8,12 +8,12 @@
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  /* background-color: var(--bg-color); */
+  background-color: var(--bg-color); /*Теперь не соответствует макету*/
 }
 
 .main {
   padding: 0 10px;
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
 }
 
 .main > *:not(:last-child) {
@@ -80,7 +80,7 @@
 }
 
 .footer {
-  background-color: var(--bg-color);
+  /* background-color: var(--bg-color); */
   display: grid;
   place-items: center;
   padding: 10px;
